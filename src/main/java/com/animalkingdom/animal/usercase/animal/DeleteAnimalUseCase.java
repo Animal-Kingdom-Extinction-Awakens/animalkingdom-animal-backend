@@ -1,4 +1,4 @@
-package com.animalkingdom.animal.usercase;
+package com.animalkingdom.animal.usercase.animal;
 
 import com.animalkingdom.animal.entity.gateway.AnimalGateway;
 import lombok.AllArgsConstructor;

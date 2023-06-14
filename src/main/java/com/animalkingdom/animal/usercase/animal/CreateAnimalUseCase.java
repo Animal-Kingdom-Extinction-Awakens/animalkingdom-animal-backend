@@ -1,8 +1,11 @@
-package com.animalkingdom.animal.usercase;
+package com.animalkingdom.animal.usercase.animal;
 
 import com.animalkingdom.animal.entity.gateway.AnimalGateway;
 import com.animalkingdom.animal.entity.model.Animal;
+import com.animalkingdom.animal.entity.model.Skill;
+import com.animalkingdom.animal.entity.model.SpeciesAnimal;
 import com.animalkingdom.animal.entity.model.enums.RarityAnimalEnum;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +19,9 @@ public class CreateAnimalUseCase {
 
         var animal = Animal.builder()
                 .name(input.name())
-                .rarity(RarityAnimalEnum.COMMON)
+                .species(input.species())
+                .rarity(input.rarity())
+                .listSkill(input.listSkill())
                 .build();
 
         animalGateway
@@ -24,7 +29,10 @@ public class CreateAnimalUseCase {
     }
 
     public record Input(
-            String name
+            String name,
+            SpeciesAnimal species,
+            RarityAnimalEnum rarity,
+            List<Skill> listSkill
     ) {
     }
 }

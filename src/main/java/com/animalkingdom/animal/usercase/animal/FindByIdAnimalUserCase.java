@@ -1,20 +1,25 @@
-package com.animalkingdom.animal.usercase;
+package com.animalkingdom.animal.usercase.animal;
 
 import com.animalkingdom.animal.entity.gateway.AnimalGateway;
 import com.animalkingdom.animal.entity.model.Animal;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class FindAllAnimalUserCase {
+public class FindByIdAnimalUserCase {
 
     private final AnimalGateway animalGateway;
 
-    public List<Animal> execute() {
+    public Animal execute(Input input) {
 
         return animalGateway
-                .findAll();
+                .findById(input.id())
+                .orElseThrow(() -> new RuntimeException("Animal not found"));
+    }
+
+    public record Input(
+            String id
+    ) {
     }
 }

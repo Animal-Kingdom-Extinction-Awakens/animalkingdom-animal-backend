@@ -1,7 +1,7 @@
-package com.animalkingdom.animal.infrastructure.controller;
+package com.animalkingdom.animal.infrastructure.controller.animal;
 
 import com.animalkingdom.animal.entity.model.Animal;
-import com.animalkingdom.animal.usercase.FindAllAnimalUserCase;
+import com.animalkingdom.animal.usercase.animal.FindAllAnimalUserCase;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

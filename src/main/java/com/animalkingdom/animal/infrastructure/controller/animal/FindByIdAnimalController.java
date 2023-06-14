@@ -1,7 +1,7 @@
-package com.animalkingdom.animal.infrastructure.controller;
+package com.animalkingdom.animal.infrastructure.controller.animal;
 
 import com.animalkingdom.animal.entity.model.Animal;
-import com.animalkingdom.animal.usercase.FindByIdAnimalUserCase;
+import com.animalkingdom.animal.usercase.animal.FindByIdAnimalUserCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
