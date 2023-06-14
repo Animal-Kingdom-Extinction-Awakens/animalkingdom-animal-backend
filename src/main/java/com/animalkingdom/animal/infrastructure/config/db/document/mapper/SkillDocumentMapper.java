@@ -4,6 +4,7 @@ import com.animalkingdom.animal.entity.model.Skill;
 import com.animalkingdom.animal.infrastructure.config.db.document.SkillDocument;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class SkillDocumentMapper {
 
@@ -40,5 +41,24 @@ public class SkillDocumentMapper {
                 )
         );
         return listSkill;
+    }
+
+    public static SkillDocument toDocument(Skill skill) {
+
+        return SkillDocument.builder()
+                .id(skill.getId())
+                .name(skill.getName())
+                .description(skill.getDescription())
+                .build();
+    }
+
+    public static Optional<Skill> toModel(SkillDocument skillDocument) {
+
+        return Optional.ofNullable(skillDocument)
+                .map(skill -> Skill.builder()
+                        .id(skill.getId())
+                        .name(skill.getName())
+                        .description(skill.getDescription())
+                        .build());
     }
 }
