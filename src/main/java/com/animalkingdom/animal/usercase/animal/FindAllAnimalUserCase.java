@@ -1,7 +1,7 @@
 package com.animalkingdom.animal.usercase.animal;
 
-import com.animalkingdom.animal.entity.gateway.AnimalGateway;
-import com.animalkingdom.animal.entity.model.Animal;
+import com.animalkingdom.animal.dto.AnimalDto;
+import com.animalkingdom.animal.repository.animal.FindAllAnimalRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,10 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class FindAllAnimalUserCase {
 
-    private final AnimalGateway animalGateway;
+    private final FindAllAnimalRepository repository;
 
-    public List<Animal> execute() {
+    public List<AnimalDto> execute() {
 
-        return animalGateway
-                .findAll();
+        return repository.findAll();
     }
 }

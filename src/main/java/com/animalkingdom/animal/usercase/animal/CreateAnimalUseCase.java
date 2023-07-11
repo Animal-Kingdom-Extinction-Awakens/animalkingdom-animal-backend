@@ -1,38 +1,35 @@
 package com.animalkingdom.animal.usercase.animal;
 
-import com.animalkingdom.animal.entity.gateway.AnimalGateway;
-import com.animalkingdom.animal.entity.model.Animal;
-import com.animalkingdom.animal.entity.model.Skill;
-import com.animalkingdom.animal.entity.model.SpeciesAnimal;
-import com.animalkingdom.animal.entity.model.enums.RarityAnimalEnum;
-import java.util.List;
-import lombok.AllArgsConstructor;
+import com.animalkingdom.animal.domain.Animal;
+import com.animalkingdom.animal.domain.Rarity;
+import com.animalkingdom.animal.domain.Specie;
+import com.animalkingdom.animal.repository.animal.CreateAnimalRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CreateAnimalUseCase {
 
-    private final AnimalGateway animalGateway;
+    private final CreateAnimalRepository repository;
 
     public void execute(Input input) {
 
         var animal = Animal.builder()
                 .name(input.name())
-                .species(input.species())
-                .rarity(input.rarity())
-                .listSkill(input.listSkill())
+                .description(input.description())
+                .specie(Specie.builder().id(input.idSpecie).build())
+                .rarity(Rarity.builder().id(input.idRarity).build())
                 .build();
 
-        animalGateway
-                .create(animal);
+        repository.create(animal);
     }
 
     public record Input(
             String name,
-            SpeciesAnimal species,
-            RarityAnimalEnum rarity,
-            List<Skill> listSkill
+            String description,
+            Integer idSpecie,
+            Integer idRarity
     ) {
     }
 }
