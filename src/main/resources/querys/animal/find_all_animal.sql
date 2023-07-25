@@ -1,8 +1,8 @@
 SELECT
     a.id,
     a.name,
-    a.description,
-    r.name AS rarity,
+    r.id AS idRarity,
+    r.name AS nameRarity,
     s.name AS specie
 FROM animal a
          INNER JOIN rarity r on r.id = a.id_rarity

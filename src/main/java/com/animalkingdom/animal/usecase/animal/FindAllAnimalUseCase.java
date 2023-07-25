@@ -1,14 +1,14 @@
-package com.animalkingdom.animal.usercase.animal;
+package com.animalkingdom.animal.usecase.animal;
 
 import com.animalkingdom.animal.dto.AnimalDto;
 import com.animalkingdom.animal.repository.animal.FindAllAnimalRepository;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
-public class FindAllAnimalUserCase {
+@RequiredArgsConstructor
+public class FindAllAnimalUseCase {
 
     private final FindAllAnimalRepository repository;
 

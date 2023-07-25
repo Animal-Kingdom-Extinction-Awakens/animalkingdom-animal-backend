@@ -18,4 +18,5 @@ public class Animal {
     private String description;
     private Specie specie;
     private Rarity rarity;
+    private String key;
 }

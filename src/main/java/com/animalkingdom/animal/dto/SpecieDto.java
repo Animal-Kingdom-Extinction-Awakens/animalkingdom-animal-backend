@@ -1,4 +1,4 @@
-package com.animalkingdom.animal.entity;
+package com.animalkingdom.animal.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AnimalEntity {
+public class SpecieDto {
 
     private Integer id;
     private String name;
     private String description;
-    private Integer idSpecie;
-    private Integer idRarity;
-    private String key;
 }

@@ -11,26 +11,35 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AnimalDto {
+public class AnimalDetailDto {
 
     private Integer id;
     private String name;
-    private String specie;
+    private String description;
+    private SpecieDto specie;
     private RarityDto rarity;
 
     @Setter
     public static class Query {
         private Integer id;
         private String name;
-        private String specie;
+        private String description;
+        private Integer idSpecie;
+        private String nameSpecie;
+        private String descriptionSpecie;
         private Integer idRarity;
         private String nameRarity;
 
-        public AnimalDto toDto() {
-            return AnimalDto.builder()
+        public AnimalDetailDto toDto() {
+            return AnimalDetailDto.builder()
                     .id(this.id)
                     .name(this.name)
-                    .specie(this.specie)
+                    .description(this.description)
+                    .specie(SpecieDto.builder()
+                            .id(this.idSpecie)
+                            .name(this.nameSpecie)
+                            .description(this.descriptionSpecie)
+                            .build())
                     .rarity(RarityDto.builder()
                             .id(this.idRarity)
                             .name(this.nameRarity)
@@ -38,4 +47,5 @@ public class AnimalDto {
                     .build();
         }
     }
+
 }

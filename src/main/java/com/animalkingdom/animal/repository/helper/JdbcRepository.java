@@ -41,6 +41,16 @@ public class JdbcRepository<T> {
         return namedParameterJdbcTemplate.query(getQuery(path), params, rowMapper);
     }
 
+    protected <T> T queryForObject(String path, MapSqlParameterSource params, RowMapper<T> rowMapper) {
+
+        return namedParameterJdbcTemplate.queryForObject(getQuery(path), params, rowMapper);
+    }
+
+    protected <T> T queryForObject(String path, MapSqlParameterSource params, Class<T> c) {
+
+        return namedParameterJdbcTemplate.queryForObject(getQuery(path), params, c);
+    }
+
     @SneakyThrows
     private String getQuery(String path) {
 

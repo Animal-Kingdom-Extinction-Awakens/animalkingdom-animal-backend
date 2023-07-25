@@ -1,0 +1,1 @@
+DELETE FROM specie WHERE id = :id;

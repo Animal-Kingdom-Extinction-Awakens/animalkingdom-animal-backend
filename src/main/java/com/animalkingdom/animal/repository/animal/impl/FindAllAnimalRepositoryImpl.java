@@ -20,6 +20,7 @@ public class FindAllAnimalRepositoryImpl extends JdbcRepository<AnimalEntity> im
     @Override
     public List<AnimalDto> findAll() {
 
-        return query(spsAnimal, null, BeanPropertyRowMapper.newInstance(AnimalDto.class));
+        List<AnimalDto.Query> lsAnimalQuery = query(spsAnimal, null, BeanPropertyRowMapper.newInstance(AnimalDto.Query.class));
+        return lsAnimalQuery.stream().map(AnimalDto.Query::toDto).toList();
     }
 }

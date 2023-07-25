@@ -1,4 +1,6 @@
 spring:
+
+## DATASOURCE ##
   datasource:
     url: jdbc:postgresql://localhost:5432/animalkingdom_db
     username: postgres
@@ -11,3 +13,22 @@ spring:
       idle-timeout: 300000
       max-lifetime: 1200000
       auto-commit: true
+
+## AWS ##
+aws:
+  region: us-east-1
+  bucketName: devmatch-publication-bucket
+  key: ${AWS_KEY}
+  secret: ${AWS_SECRET_KEY}
+
+## SYSTEM LOG ##
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        servlet:
+          DispatcherServlet: INFO
+        web: DEBUG
+    com:
+      animalkingdom: TRACE
